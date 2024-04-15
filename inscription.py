@@ -1,31 +1,34 @@
-import click
-import pandas as pd
+import csv
 
-@click.command()
-@click.option('--email', prompt='Email', help='Adresse email de l\'utilisateur')
-@click.password_option(prompt='Mot de passe', help='Mot de passe de l\'utilisateur')
-@click.password_option(prompt='Confirmez le mot de passe', help='Confirmez le mot de passe')
-@click.option('--nom', prompt='Nom', help='Nom de l\'utilisateur')
-@click.option('--prenom', prompt='Prénom', help='Prénom de l\'utilisateur')
-@click.option('--telephone', prompt='Téléphone', help='Numéro de téléphone de l\'utilisateur')
-def inscription(email, password, confirm_password, nom, prenom, telephone):
-    if password != confirm_password:
-        click.echo("Les mots de passe ne correspondent pas. Veuillez réessayer.")
-        return
+def add_user_to_csv(email, password, lastname, firstname, phone):
+    with open("users.csv", mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([email, password, lastname, firstname, phone])
 
-    # Vérifier si l'utilisateur existe déjà dans le fichier Excel
-    users_df = pd.read_excel('users.csv', engine='openpyxl', dtype=str)
-    if email in users_df['Email'].values:
-        click.echo("Cet email existe déjà. Veuillez utiliser un autre email.")
-        return
+def main():
+    print("Bienvenue sur notre application CLI d'inscription !")
+    print("Veuillez saisir vos informations :")
 
-    # Ajouter l'utilisateur au fichier Excel
-    new_user = {'Email': email, 'Mot de passe': password, 'Nom': nom, 'Prénom': prenom, 'Téléphone': telephone}
-    users_df = users_df.append(new_user, ignore_index=True)
+    email = input("Email : ")
+    password = input("Mot de passe : ")
+    confirm_password = input("Confirmez votre mot de passe : ")
+    lastname = input("Nom : ")
+    firstname = input("Prénom : ")
+    phone = input("Téléphone : ")
 
-    # Sauvegarder le DataFrame dans le fichier Excel
-    users_df.to_excel('users.xlsx', index=False, engine='openpyxl')
-    click.echo("Utilisateur inscrit avec succès !")
+    print("\nVous avez saisi les informations suivantes :")
+    print("Email :", email)
+    print("Mot de passe :", '*' * len(password))  # Affiche des * pour le mot de passe
+    print("Nom :", lastname)
+    print("Prénom :", firstname)
+    print("Téléphone :", phone)
 
-if __name__ == '__main__':
-    inscription()
+    confirmation = input("\nConfirmez-vous l'inscription ? (O/N) : ")
+    if confirmation.lower() == 'o':
+        add_user_to_csv(email, password, lastname, firstname, phone)
+        print("Inscription réussie ! Les informations ont été ajoutées au fichier users.csv.")
+    else:
+        print("Inscription annulée.")
+
+if __name__ == "__main__":
+    main()
