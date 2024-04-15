@@ -1,3 +1,3 @@
-Email,Password,Confirm Password,Last Name,First Name,Phone Number
-user1@example.com,password123,password123,Doe,John,123456789
-user2@example.com,securepass,securepass,Smith,Jane,987654321
+Email,Password,Last Name,First Name,Phone Number
+user1@example.com,password123,Doe,John,123456789
+user2@example.com,securepass,Smith,Jane,987654321
