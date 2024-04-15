@@ -1,4 +1,5 @@
 import csv
+from update import main_menu
 
 def add_user_to_csv(email, password, lastname, firstname, phone):
     with open("users.csv", mode='a', newline='') as file:
@@ -27,6 +28,7 @@ def main_inscription():
     if confirmation.lower() == 'o':
         add_user_to_csv(email, password, lastname, firstname, phone)
         print("Inscription réussie ! Les informations ont été ajoutées au fichier users.csv.")
+        main_menu(email)
     else:
         print("Inscription annulée.")
 

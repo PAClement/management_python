@@ -1,4 +1,5 @@
 email,password,lastname,firstname,phone
 user1@example.com,password123,Doe,John,123456789
 user2@example.com,securepass,Smith,Jane,987654321
-clement@hot.fr,123,paq,clem,0660606
+clement@hot.fr,123,paq,clem,660606
+paq@paq.fr,12345,paquentin,clement,660107403

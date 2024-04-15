@@ -1,4 +1,5 @@
 import pandas as pd
+from update import main_menu
 
 def login(email, password, csv_file):
     # Lecture du fichier CSV
@@ -20,6 +21,7 @@ def main_connexion():
 
     if login(email, password, csv_file):
         print("Connexion réussie. Vous êtes connecté.")
+        main_menu(email)
     else:
         print("La connexion a échoué. Veuillez vérifier vos informations d'identification.")
 
