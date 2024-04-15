@@ -1,4 +1,5 @@
 import pandas as pd
+from graph import main_graph
 
 def update_user_info(email, field_to_update, new_value, csv_file):
     # Charger le fichier CSV des utilisateurs
@@ -30,7 +31,8 @@ def main_menu(email):
         print("2. Modifier le nom de famille")
         print("3. Modifier le prénom")
         print("4. Modifier le numéro de téléphone")
-        print("5. Se déconnecter")
+        print("5. Graph")
+        print("6. Se déconnecter")
 
         choice = input("Choisissez une option (1/2/3/4/5) : ")
 
@@ -40,6 +42,9 @@ def main_menu(email):
             field_to_update = fields[int(choice) - 1]
             update_user_info(email, field_to_update, new_value, 'users.csv')
         elif choice == '5':
+            main_graph()
+
+        elif choice == '6':
             print("Vous avez été déconnecté.")
             break
         else:
