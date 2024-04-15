@@ -26,4 +26,4 @@ def main_connexion():
         print("La connexion a échoué. Veuillez vérifier vos informations d'identification.")
 
 if __name__ == "__main__":
-    main()
+    main_connexion()

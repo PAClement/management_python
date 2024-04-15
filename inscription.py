@@ -33,4 +33,4 @@ def main_inscription():
         print("Inscription annulée.")
 
 if __name__ == "__main__":
-    main()
+    main_inscription()
