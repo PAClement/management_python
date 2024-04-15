@@ -6,7 +6,7 @@ def add_user_to_csv(email, password, lastname, firstname, phone):
         writer.writerow([email, password, lastname, firstname, phone])
 
 def main():
-    print("Bienvenue sur notre application CLI d'inscription !")
+    print("Bienvenue Inscrivez vous !")
     print("Veuillez saisir vos informations :")
 
     email = input("Email : ")
