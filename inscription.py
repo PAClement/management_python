@@ -5,7 +5,7 @@ def add_user_to_csv(email, password, lastname, firstname, phone):
         writer = csv.writer(file)
         writer.writerow([email, password, lastname, firstname, phone])
 
-def main():
+def main_inscription():
     print("Bienvenue Inscrivez vous !")
     print("Veuillez saisir vos informations :")
 

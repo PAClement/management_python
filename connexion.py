@@ -11,7 +11,7 @@ def login(email, password, csv_file):
 
     return False
 
-def main():
+def main_connexion():
     csv_file = 'users.csv'  # Remplacez 'users.csv' par le nom de votre fichier CSV
 
     print("Bienvenue ! Veuillez vous connecter.")
